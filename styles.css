@@ -1062,3 +1062,40 @@ figcaption {
     margin-right: auto;
   }
 }
+
+.evidence-plate--fall-hands {
+  max-width: min(100%, 30rem);
+}
+.evidence-plate--fall-hands .evidence-burn,
+.evidence-plate--fall-hands figcaption {
+  transform: rotate(0.6deg);
+}
+.evidence-plate--fall-hands .evidence-burn img {
+  max-height: 13rem;
+  object-fit: cover;
+  object-position: center 45%;
+  filter: grayscale(1) contrast(1.25) brightness(0.85) sepia(0.35);
+}
+
+.evidence-plate--fall-watch {
+  max-width: min(100%, 18rem);
+}
+.evidence-plate--fall-watch .evidence-burn,
+.evidence-plate--fall-watch figcaption {
+  transform: rotate(-1deg);
+}
+.evidence-plate--fall-watch .evidence-burn img {
+  max-height: 15rem;
+  object-fit: cover;
+  object-position: center 40%;
+  filter: grayscale(1) contrast(1.2) brightness(0.88) sepia(0.22);
+}
+
+@media (min-width: 800px) {
+  .evidence-plate--fall-hands { max-width: 32rem; }
+  .evidence-plate--fall-watch { max-width: 16.5rem; }
+  .prose .evidence-plate--fall-hands.evidence-plate--insert {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
