@@ -1136,3 +1136,39 @@ figcaption {
     margin-right: auto;
   }
 }
+.evidence-plate--heresy-order {
+  max-width: min(100%, 26rem);
+}
+.evidence-plate--heresy-order .evidence-burn,
+.evidence-plate--heresy-order figcaption {
+  transform: rotate(0.7deg);
+}
+.evidence-plate--heresy-order .evidence-burn img {
+  max-height: 18rem;
+  object-fit: cover;
+  object-position: center 35%;
+  filter: grayscale(1) contrast(1.25) brightness(0.8) sepia(0.25);
+}
+
+.evidence-plate--heresy-self {
+  max-width: min(100%, 15rem);
+}
+.evidence-plate--heresy-self .evidence-burn,
+.evidence-plate--heresy-self figcaption {
+  transform: rotate(-0.85deg);
+}
+.evidence-plate--heresy-self .evidence-burn img {
+  max-height: 17rem;
+  object-fit: cover;
+  object-position: center top;
+  filter: grayscale(1) contrast(1.2) brightness(0.86) sepia(0.2);
+}
+
+@media (min-width: 800px) {
+  .evidence-plate--heresy-order { max-width: 28rem; }
+  .evidence-plate--heresy-self { max-width: 14.5rem; }
+  .prose .evidence-plate--heresy-order.evidence-plate--insert {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
