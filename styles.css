@@ -1025,3 +1025,40 @@ figcaption {
     margin-right: auto;
   }
 }
+
+.evidence-plate--last-lovers {
+  max-width: min(100%, 18rem);
+}
+.evidence-plate--last-lovers .evidence-burn,
+.evidence-plate--last-lovers figcaption {
+  transform: rotate(-0.7deg);
+}
+.evidence-plate--last-lovers .evidence-burn img {
+  max-height: 16rem;
+  object-fit: cover;
+  object-position: center 60%;
+  filter: grayscale(1) contrast(1.2) brightness(0.78) sepia(0.35);
+}
+
+.evidence-plate--last-safe {
+  max-width: min(100%, 32rem);
+}
+.evidence-plate--last-safe .evidence-burn,
+.evidence-plate--last-safe figcaption {
+  transform: rotate(0.55deg);
+}
+.evidence-plate--last-safe .evidence-burn img {
+  max-height: 14rem;
+  object-fit: cover;
+  object-position: center 55%;
+  filter: grayscale(0.35) contrast(1.08) brightness(0.95) sepia(0.4);
+}
+
+@media (min-width: 800px) {
+  .evidence-plate--last-lovers { max-width: 16.5rem; }
+  .evidence-plate--last-safe { max-width: 34rem; }
+  .prose .evidence-plate--last-safe.evidence-plate--insert {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
