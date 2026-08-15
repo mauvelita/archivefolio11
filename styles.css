@@ -1099,3 +1099,40 @@ figcaption {
     margin-right: auto;
   }
 }
+
+.evidence-plate--voice-touch {
+  max-width: min(100%, 30rem);
+}
+.evidence-plate--voice-touch .evidence-burn,
+.evidence-plate--voice-touch figcaption {
+  transform: rotate(0.5deg);
+}
+.evidence-plate--voice-touch .evidence-burn img {
+  max-height: 13.5rem;
+  object-fit: cover;
+  object-position: center 45%;
+  filter: grayscale(1) contrast(1.18) brightness(0.88) sepia(0.3);
+}
+
+.evidence-plate--voice-bed {
+  max-width: min(100%, 17rem);
+}
+.evidence-plate--voice-bed .evidence-burn,
+.evidence-plate--voice-bed figcaption {
+  transform: rotate(-0.9deg);
+}
+.evidence-plate--voice-bed .evidence-burn img {
+  max-height: 16rem;
+  object-fit: cover;
+  object-position: center 40%;
+  filter: grayscale(1) contrast(1.22) brightness(0.82) sepia(0.28);
+}
+
+@media (min-width: 800px) {
+  .evidence-plate--voice-touch { max-width: 32rem; }
+  .evidence-plate--voice-bed { max-width: 16rem; }
+  .prose .evidence-plate--voice-touch.evidence-plate--insert {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
