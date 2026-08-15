@@ -974,3 +974,54 @@ figcaption {
 .evidence-id {
   display: inline;
 }
+
+.evidence-plate--delirium-court {
+  max-width: min(100%, 34rem);
+}
+.evidence-plate--delirium-court .evidence-burn,
+.evidence-plate--delirium-court figcaption {
+  transform: rotate(0.75deg);
+}
+.evidence-plate--delirium-court .evidence-burn img {
+  max-height: 15.5rem;
+  object-fit: cover;
+  object-position: center 42%;
+}
+
+.evidence-plate--delirium-drown {
+  max-width: min(100%, 22rem);
+}
+.evidence-plate--delirium-drown .evidence-burn,
+.evidence-plate--delirium-drown figcaption {
+  transform: rotate(-1.15deg);
+}
+.evidence-plate--delirium-drown .evidence-burn img {
+  max-height: 14rem;
+  object-fit: cover;
+  object-position: center 55%;
+  filter: grayscale(1) contrast(1.22) brightness(0.86) sepia(0.22);
+}
+
+.prose .evidence-plate--margin-left {
+  max-width: 22rem;
+}
+
+@media (min-width: 800px) {
+  .evidence-plate--delirium-court { max-width: 36rem; }
+  .evidence-plate--delirium-drown { max-width: 20rem; }
+
+  .prose .evidence-plate--margin-left {
+    float: left;
+    margin: 0.45rem 1.75rem 1.6rem 0;
+    max-width: 19rem;
+    clear: left;
+  }
+  .prose .evidence-plate--margin-left .evidence-burn,
+  .prose .evidence-plate--margin-left figcaption {
+    transform: rotate(-1.15deg);
+  }
+  .prose .evidence-plate--delirium-court.evidence-plate--insert {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
