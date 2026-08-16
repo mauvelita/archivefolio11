@@ -737,10 +737,8 @@ body.paged .site-footer {
 
 /* ——— Recovered / burned evidence plates ——— */
 /*
-  Three layout tiers (keep chapter modifiers for crop/tilt only):
-  1. Dossier (folio-head default) — portrait
-  2. Wide insert — landscape / full-measure narrative
-  3. Margin insert — side plate that text wraps around
+  Plate frame stays burned. Images are only resized (max-width / max-height).
+  Do not crop with aspect-ratio + object-fit: cover.
 */
 
 .evidence-plate {
@@ -798,14 +796,14 @@ body.paged .site-footer {
     radial-gradient(ellipse at 30% 20%, transparent 55%, rgba(20, 12, 8, 0.28) 100%);
 }
 
+/* Resize only — never crop/zoom with cover + forced aspect */
 .evidence-burn img {
   display: block;
   width: 100%;
   height: auto;
   max-height: 26rem;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
-  object-position: center top;
+  object-fit: contain;
+  object-position: center center;
   filter: grayscale(1) contrast(1.18) brightness(0.9) sepia(0.28);
   border: 1px solid rgba(40, 24, 12, 0.35);
 }
@@ -848,10 +846,6 @@ body.paged .site-footer {
   transform: rotate(1.1deg);
 }
 
-.evidence-plate--anomaly .evidence-burn img {
-  object-position: center 18%;
-}
-
 /* —— Tier: wide narrative inserts —— */
 .evidence-plate--wide,
 .evidence-plate--mirage,
@@ -861,7 +855,8 @@ body.paged .site-footer {
 .evidence-plate--heresy-order,
 .evidence-plate--purge2,
 .evidence-plate--last-safe,
-.evidence-plate--death {
+.evidence-plate--death,
+.evidence-plate--voices-eyes {
   max-width: min(100%, 32rem);
 }
 
@@ -892,82 +887,54 @@ body.paged .site-footer {
 }
 
 .evidence-plate--wide .evidence-burn img,
-.evidence-plate--mirage .evidence-burn img,
 .evidence-plate--delirium-court .evidence-burn img,
 .evidence-plate--fall-hands .evidence-burn img,
 .evidence-plate--voice-touch .evidence-burn img,
 .evidence-plate--heresy-order .evidence-burn img,
-.evidence-plate--purge2 .evidence-burn img {
-  aspect-ratio: 16 / 10;
+.evidence-plate--purge2 .evidence-burn img,
+.evidence-plate--voices-eyes .evidence-burn img {
   max-height: 14.5rem;
-  object-position: center center;
 }
 
-/* Ritual source is portrait — crop into the shared plate size */
+/* Ritual: tall source — scale whole frame, no crop */
 .evidence-plate--ritual {
-  max-width: min(100%, 20rem);
+  max-width: min(100%, 18rem);
 }
 
 .evidence-plate--ritual .evidence-burn img {
-  aspect-ratio: 3 / 4;
-  max-height: 22rem;
-  object-fit: cover;
-  object-position: center 30%;
+  max-height: 28rem;
 }
 
-/* Mirage gif: slightly taller */
+/* Mirage gif */
 .evidence-plate--mirage .evidence-burn img {
-  aspect-ratio: 4 / 5;
-  max-height: 18rem;
-  object-position: center center;
+  max-height: 16rem;
 }
 
-/* Death: source is wide (~11:5) — near-native, light crop only */
+/* Death: wide source — scale whole frame */
 .evidence-plate--death {
   max-width: min(100%, 34rem);
 }
 
 .evidence-plate--death .evidence-burn img {
-  aspect-ratio: 11 / 5;
-  max-height: 13.5rem;
-  object-fit: cover;
-  object-position: center 48%;
+  max-height: 14rem;
 }
 
-/* Doc plate (Voices redaction) — crop into side-plate size */
+/* Doc plate (Voices redaction) */
 .evidence-plate--doc {
   max-width: min(100%, 15.5rem);
 }
 
 .evidence-plate--doc .evidence-burn img {
-  aspect-ratio: 1 / 1;
   max-height: 16rem;
-  object-fit: cover;
-  object-position: center center;
 }
 
-/* Voices emptied-eyes strip */
-.evidence-plate--voices-eyes {
-  max-width: min(100%, 34rem);
-}
-
-.evidence-plate--voices-eyes .evidence-burn img {
-  aspect-ratio: 21 / 9;
-  max-height: 12rem;
-  object-fit: cover;
-  object-position: center 40%;
-}
-
-/* Last Time safety gif — near-native wide frame, light crop only */
+/* Last Time safety gif */
 .evidence-plate--last-safe {
   max-width: min(100%, 34rem);
 }
 
 .evidence-plate--last-safe .evidence-burn img {
-  aspect-ratio: 18 / 5;
-  max-height: 13.5rem;
-  object-fit: cover;
-  object-position: center 42%;
+  max-height: 12rem;
   filter: grayscale(0.2) contrast(1.05) brightness(0.98) sepia(0.22);
 }
 
@@ -1013,31 +980,17 @@ body.paged .site-footer {
 .evidence-plate--purge .evidence-burn img,
 .prose .evidence-plate--margin .evidence-burn img,
 .prose .evidence-plate--margin-left .evidence-burn img {
-  aspect-ratio: 4 / 5;
   max-height: 16rem;
-  object-position: center center;
 }
 
-/* Crop accents (size stays in tier) */
-.evidence-plate--fall-hands .evidence-burn img { object-position: center 45%; }
-.evidence-plate--fall-watch .evidence-burn img { object-position: center 40%; }
-.evidence-plate--voice-touch .evidence-burn img { object-position: center 45%; }
-.evidence-plate--voice-bed .evidence-burn img { object-position: center 38%; }
-.evidence-plate--heresy-order .evidence-burn img { object-position: center 30%; }
-.evidence-plate--heresy-self .evidence-burn img { object-position: center top; }
-.evidence-plate--delirium-court .evidence-burn img { object-position: center 42%; }
+/* Ink accents only (no crop) */
 .evidence-plate--delirium-drown .evidence-burn img {
-  object-position: center 55%;
   filter: grayscale(1) contrast(1.22) brightness(0.86) sepia(0.22);
 }
 .evidence-plate--purge2 .evidence-burn img {
-  object-position: center 35%;
-  aspect-ratio: 1 / 1;
   filter: grayscale(1) contrast(1.28) brightness(0.82) sepia(0.3);
 }
-.evidence-plate--purge .evidence-burn img { object-position: center top; }
 .evidence-plate--last-lovers .evidence-burn img {
-  object-position: center 60%;
   filter: grayscale(1) contrast(1.2) brightness(0.78) sepia(0.35);
 }
 
@@ -1076,12 +1029,13 @@ body.paged .site-footer {
   .evidence-plate--heresy-order,
   .evidence-plate--purge2,
   .evidence-plate--last-safe,
-  .evidence-plate--death {
+  .evidence-plate--death,
+  .evidence-plate--voices-eyes {
     max-width: 34rem;
   }
 
   .evidence-plate--ritual {
-    max-width: 20rem;
+    max-width: 18rem;
   }
 
   .prose .evidence-plate--margin,
@@ -1104,7 +1058,6 @@ body.paged .site-footer {
     clear: left;
   }
 
-  /* Center all wide / chapter narrative inserts */
   .prose .evidence-plate--wide.evidence-plate--insert,
   .prose .evidence-plate--voices-eyes.evidence-plate--insert,
   .prose .evidence-plate--ritual.evidence-plate--insert,
@@ -1159,7 +1112,8 @@ body.paged .site-footer {
   .evidence-plate--heresy-order,
   .evidence-plate--purge2,
   .evidence-plate--last-safe,
-  .evidence-plate--death {
+  .evidence-plate--death,
+  .evidence-plate--voices-eyes {
     max-width: min(100%, 100%);
   }
 
@@ -1171,11 +1125,12 @@ body.paged .site-footer {
   .evidence-plate--heresy-order .evidence-burn img,
   .evidence-plate--purge2 .evidence-burn img,
   .evidence-plate--last-safe .evidence-burn img,
-  .evidence-plate--death .evidence-burn img {
+  .evidence-plate--death .evidence-burn img,
+  .evidence-plate--voices-eyes .evidence-burn img {
     max-height: 13rem;
   }
 
   .evidence-plate--ritual .evidence-burn img {
-    max-height: 20rem;
+    max-height: 24rem;
   }
 }
