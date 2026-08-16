@@ -516,6 +516,7 @@ a:hover {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
 /* ——— Paged / flip mode ——— */
 
 body.paged {
@@ -838,6 +839,7 @@ body.paged .site-footer {
   color: var(--ash);
 }
 
+/* —— Tier: dossier faces (Vessel / Anomaly) —— */
 .evidence-plate--anomaly .evidence-burn {
   transform: rotate(1.1deg);
 }
@@ -850,8 +852,8 @@ body.paged .site-footer {
   object-position: center 18%;
 }
 
+/* —— Tier: wide narrative inserts —— */
 .evidence-plate--wide,
-.evidence-plate--ritual,
 .evidence-plate--mirage,
 .evidence-plate--delirium-court,
 .evidence-plate--fall-hands,
@@ -890,51 +892,86 @@ body.paged .site-footer {
 }
 
 .evidence-plate--wide .evidence-burn img,
-.evidence-plate--ritual .evidence-burn img,
 .evidence-plate--mirage .evidence-burn img,
 .evidence-plate--delirium-court .evidence-burn img,
 .evidence-plate--fall-hands .evidence-burn img,
 .evidence-plate--voice-touch .evidence-burn img,
 .evidence-plate--heresy-order .evidence-burn img,
-.evidence-plate--purge2 .evidence-burn img,
-.evidence-plate--last-safe .evidence-burn img,
-.evidence-plate--death .evidence-burn img {
+.evidence-plate--purge2 .evidence-burn img {
   aspect-ratio: 16 / 10;
   max-height: 14.5rem;
   object-position: center center;
 }
 
-.evidence-plate--ritual .evidence-burn img {
-  aspect-ratio: auto;
-  max-height: none;
-  height: auto;
-  object-fit: contain;
+/* Ritual source is portrait — crop into the shared plate size */
+.evidence-plate--ritual {
+  max-width: min(100%, 20rem);
 }
 
+.evidence-plate--ritual .evidence-burn img {
+  aspect-ratio: 3 / 4;
+  max-height: 22rem;
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+/* Mirage gif: slightly taller */
 .evidence-plate--mirage .evidence-burn img {
   aspect-ratio: 4 / 5;
   max-height: 18rem;
   object-position: center center;
 }
 
+/* Death: source is wide (~11:5) — near-native, light crop only */
 .evidence-plate--death {
-  max-width: min(100%, 20rem);
+  max-width: min(100%, 34rem);
 }
 
 .evidence-plate--death .evidence-burn img {
-  aspect-ratio: 3 / 4;
-  max-height: 22rem;
-  object-position: center center;
+  aspect-ratio: 11 / 5;
+  max-height: 13.5rem;
+  object-fit: cover;
+  object-position: center 48%;
+}
+
+/* Doc plate (Voices redaction) — crop into side-plate size */
+.evidence-plate--doc {
+  max-width: min(100%, 15.5rem);
 }
 
 .evidence-plate--doc .evidence-burn img {
   aspect-ratio: 1 / 1;
   max-height: 16rem;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center center;
-  background: #f3ebe0;
 }
 
+/* Voices emptied-eyes strip */
+.evidence-plate--voices-eyes {
+  max-width: min(100%, 34rem);
+}
+
+.evidence-plate--voices-eyes .evidence-burn img {
+  aspect-ratio: 21 / 9;
+  max-height: 12rem;
+  object-fit: cover;
+  object-position: center 40%;
+}
+
+/* Last Time safety gif — near-native wide frame, light crop only */
+.evidence-plate--last-safe {
+  max-width: min(100%, 34rem);
+}
+
+.evidence-plate--last-safe .evidence-burn img {
+  aspect-ratio: 18 / 5;
+  max-height: 13.5rem;
+  object-fit: cover;
+  object-position: center 42%;
+  filter: grayscale(0.2) contrast(1.05) brightness(0.98) sepia(0.22);
+}
+
+/* —— Tier: side / margin inserts —— */
 .prose .evidence-plate--margin,
 .prose .evidence-plate--margin-left,
 .evidence-plate--fall-watch,
@@ -981,6 +1018,7 @@ body.paged .site-footer {
   object-position: center center;
 }
 
+/* Crop accents (size stays in tier) */
 .evidence-plate--fall-hands .evidence-burn img { object-position: center 45%; }
 .evidence-plate--fall-watch .evidence-burn img { object-position: center 40%; }
 .evidence-plate--voice-touch .evidence-burn img { object-position: center 45%; }
@@ -1002,11 +1040,8 @@ body.paged .site-footer {
   object-position: center 60%;
   filter: grayscale(1) contrast(1.2) brightness(0.78) sepia(0.35);
 }
-.evidence-plate--last-safe .evidence-burn img {
-  object-position: center 55%;
-  filter: grayscale(0.35) contrast(1.08) brightness(0.95) sepia(0.4);
-}
 
+/* —— In-prose placement —— */
 .prose .evidence-plate--insert {
   margin: 2.1rem auto 2.4rem;
   clear: both;
@@ -1034,18 +1069,18 @@ body.paged .site-footer {
   }
 
   .evidence-plate--wide,
-  .evidence-plate--ritual,
   .evidence-plate--mirage,
   .evidence-plate--delirium-court,
   .evidence-plate--fall-hands,
   .evidence-plate--voice-touch,
   .evidence-plate--heresy-order,
   .evidence-plate--purge2,
-  .evidence-plate--last-safe {
+  .evidence-plate--last-safe,
+  .evidence-plate--death {
     max-width: 34rem;
   }
 
-  .evidence-plate--death {
+  .evidence-plate--ritual {
     max-width: 20rem;
   }
 
@@ -1069,7 +1104,9 @@ body.paged .site-footer {
     clear: left;
   }
 
+  /* Center all wide / chapter narrative inserts */
   .prose .evidence-plate--wide.evidence-plate--insert,
+  .prose .evidence-plate--voices-eyes.evidence-plate--insert,
   .prose .evidence-plate--ritual.evidence-plate--insert,
   .prose .evidence-plate--mirage.evidence-plate--insert,
   .prose .evidence-plate--death.evidence-plate--insert,
@@ -1115,26 +1152,30 @@ body.paged .site-footer {
   }
 
   .evidence-plate--wide,
-  .evidence-plate--ritual,
   .evidence-plate--mirage,
   .evidence-plate--delirium-court,
   .evidence-plate--fall-hands,
   .evidence-plate--voice-touch,
   .evidence-plate--heresy-order,
   .evidence-plate--purge2,
-  .evidence-plate--last-safe {
+  .evidence-plate--last-safe,
+  .evidence-plate--death {
     max-width: min(100%, 100%);
   }
 
   .evidence-plate--wide .evidence-burn img,
-  .evidence-plate--ritual .evidence-burn img,
   .evidence-plate--mirage .evidence-burn img,
   .evidence-plate--delirium-court .evidence-burn img,
   .evidence-plate--fall-hands .evidence-burn img,
   .evidence-plate--voice-touch .evidence-burn img,
   .evidence-plate--heresy-order .evidence-burn img,
   .evidence-plate--purge2 .evidence-burn img,
-  .evidence-plate--last-safe .evidence-burn img {
+  .evidence-plate--last-safe .evidence-burn img,
+  .evidence-plate--death .evidence-burn img {
     max-height: 13rem;
+  }
+
+  .evidence-plate--ritual .evidence-burn img {
+    max-height: 20rem;
   }
 }
