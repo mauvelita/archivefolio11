@@ -751,7 +751,7 @@ body.paged .site-footer {
 
 .folio-head .evidence-plate {
   margin-top: 2.25rem;
-  margin-left: 0;
+  margin-left: auto;
   margin-right: auto;
 }
 
@@ -801,7 +801,7 @@ body.paged .site-footer {
     radial-gradient(ellipse at 30% 20%, transparent 55%, rgba(20, 12, 8, 0.28) 100%);
 }
 
-/* Resize only — never crop/zoom with cover + forced aspect */
+/* Whole image scaled; frame matches image — no letterbox sides */
 .evidence-burn img {
   display: block;
   width: auto;
@@ -820,6 +820,9 @@ body.paged .site-footer {
   gap: 0.25rem 0.75rem;
   margin-top: 0.75rem;
   padding: 0 0.1rem;
+  width: 0;
+  min-width: 100%;
+  box-sizing: border-box;
   transform: rotate(-0.9deg);
 }
 
@@ -1000,6 +1003,9 @@ body.paged .site-footer {
 
 /* —— In-prose placement —— */
 .prose .evidence-plate--insert {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
   margin: 2.1rem auto 2.4rem;
   clear: both;
 }
@@ -1023,6 +1029,8 @@ body.paged .site-footer {
 
   .folio-head .evidence-plate {
     max-width: 22rem;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .evidence-plate--wide,
@@ -1047,19 +1055,23 @@ body.paged .site-footer {
   .evidence-plate--voice-bed,
   .evidence-plate--heresy-self,
   .evidence-plate--purge {
-    float: right;
-    margin: 0.4rem 0 1.6rem 1.75rem;
+    float: none;
+    display: block;
+    width: fit-content;
+    margin: 2.1rem auto 2.4rem;
     max-width: 15.25rem;
-    clear: right;
+    clear: both;
   }
 
   .prose .evidence-plate--margin-left,
   .evidence-plate--delirium-drown,
   .evidence-plate--last-lovers {
-    float: left;
-    margin: 0.4rem 1.75rem 1.6rem 0;
+    float: none;
+    display: block;
+    width: fit-content;
+    margin: 2.1rem auto 2.4rem;
     max-width: 15.25rem;
-    clear: left;
+    clear: both;
   }
 
   .prose .evidence-plate--wide.evidence-plate--insert,
@@ -1075,6 +1087,7 @@ body.paged .site-footer {
   .prose .evidence-plate--last-safe.evidence-plate--insert {
     float: none;
     display: block;
+    width: fit-content;
     margin-left: auto;
     margin-right: auto;
     max-width: 34rem;
@@ -1101,7 +1114,8 @@ body.paged .site-footer {
   .evidence-plate--heresy-self,
   .evidence-plate--delirium-drown,
   .evidence-plate--last-lovers,
-  .evidence-plate--purge {
+  .evidence-plate--purge,
+  .folio-head .evidence-plate {
     float: none;
     max-width: min(100%, 22rem);
     margin-left: auto;
