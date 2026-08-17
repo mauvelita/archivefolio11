@@ -904,13 +904,13 @@ body.paged .site-footer {
 }
 
 
-/* Ritual: tall source — scale whole frame, no crop */
+/* Ritual: match Vessel / Anomaly width; height follows the plate, no crop */
 .evidence-plate--ritual {
   max-width: min(100%, 20rem);
 }
 
 .evidence-plate--ritual .evidence-burn img {
-  max-height: 31rem;
+  max-height: none;
 }
 
 /* Mirage gif */
@@ -1048,7 +1048,7 @@ body.paged .site-footer {
   }
 
   .evidence-plate--ritual {
-    max-width: 18rem;
+    max-width: 22rem;
   }
 
   .prose .evidence-plate--margin,
@@ -1091,7 +1091,7 @@ body.paged .site-footer {
     width: fit-content;
     margin-left: auto;
     margin-right: auto;
-    max-width: 34rem;
+    max-width: 22rem;
     clear: both;
   }
 }
