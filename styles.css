@@ -903,13 +903,14 @@ body.paged .site-footer {
   max-height: 14.5rem;
 }
 
+
 /* Ritual: tall source — scale whole frame, no crop */
 .evidence-plate--ritual {
-  max-width: min(100%, 18rem);
+  max-width: min(100%, 20rem);
 }
 
 .evidence-plate--ritual .evidence-burn img {
-  max-height: 28rem;
+  max-height: 31rem;
 }
 
 /* Mirage gif */
