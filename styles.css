@@ -904,10 +904,10 @@ body.paged .site-footer {
 }
 
 
-/* Ritual: same frame width as Vessel / Anomaly; height follows, no crop */
+/* Ritual: large portrait plate — full figure, no crop */
 .evidence-plate--ritual {
-  width: min(100%, 22rem);
-  max-width: min(100%, 22rem);
+  width: min(100%, 32rem);
+  max-width: min(100%, 32rem);
 }
 
 .evidence-plate--ritual .evidence-burn {
