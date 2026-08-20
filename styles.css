@@ -904,22 +904,27 @@ body.paged .site-footer {
 }
 
 
-/* Ritual: large portrait plate — full figure, no crop */
+/* Ritual: large portrait plate — frame hugs image, caption flush like others */
 .evidence-plate--ritual {
-  width: min(100%, 32rem);
+  width: fit-content;
   max-width: min(100%, 32rem);
 }
 
 .evidence-plate--ritual .evidence-burn {
-  width: 100%;
+  width: fit-content;
   max-width: 100%;
+  margin-inline: auto;
 }
 
 .evidence-plate--ritual .evidence-burn img {
-  width: 100%;
+  width: auto;
   max-width: 100%;
   height: auto;
   max-height: none;
+}
+
+.evidence-plate--ritual figcaption {
+  margin-top: 0.45rem;
 }
 
 /* Mirage gif */
